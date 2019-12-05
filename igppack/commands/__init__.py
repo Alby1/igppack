@@ -1,8 +1,10 @@
 from .giustizia import GiustiziaCommand
-
+from .rage import RageCommand
 # Enter the commands of your Pack here!
 available_commands = [
     GiustiziaCommand,
+    RageCommand,
+
 
 ]
 
