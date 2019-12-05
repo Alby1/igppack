@@ -6,7 +6,6 @@ from sqlalchemy import func
 from igppack.tables import *
 
 
-
 class GiustiziaCommand(Command):
     name: str = "giustizia"
 
@@ -18,6 +17,10 @@ class GiustiziaCommand(Command):
 
         username = args.optional(0)
         variazione = args.optional(1)
+        blocco = await data.get_author(error_if_none=True)
+        if blocco is not 1:
+            await data.reply(f"Non sei autorizzato a usare questo comando.")
+
         if username is None:
             user: User = await data.get_author(error_if_none=True)
         else:

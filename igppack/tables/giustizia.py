@@ -3,7 +3,9 @@ from sqlalchemy.orm import *
 from sqlalchemy.ext.declarative import *
 from royalnet.backpack.tables import *
 
+
 class Giustizia:
+
     __tablename__ = "giustizia"
 
     @declared_attr
