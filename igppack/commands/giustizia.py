@@ -20,7 +20,7 @@ class GiustiziaCommand(Command):
         username = args.optional(0)
         variazione = args.optional(1)
         blocco = await data.get_author(error_if_none=True)
-        if blocco is not 1 and variazione is not None:
+        if blocco.role == 'admin' and variazione is not None:
             await data.reply(f"Non sei autorizzato a modificare le giustizie.")
         else:
             if username is None:
@@ -39,7 +39,7 @@ class GiustiziaCommand(Command):
 
             if user.giustizia is None:
 
-                giustizia = self.alchemy.get(Giustizia)(user = user, conteggio = 0)
+                giustizia = self.alchemy.get(Giustizia)(user=user, conteggio=0)
                 data.session.add(giustizia)
                 await data.session_commit()
 
@@ -53,9 +53,6 @@ class GiustiziaCommand(Command):
 
             await data.reply(f"{user.username} sarà giustiziato: {giustizia.conteggio} volte")
 
-
-
-
-#/giustizia → tuo punteggio
-#/giustizia [nome] → punteggio di nome
-#/giustizia [nome] +1 → aggiunge 1 a punteggio di nome
+# /giustizia → tuo punteggio
+# /giustizia [nome] → punteggio di nome
+# /giustizia [nome] +1 → aggiunge 1 a punteggio di nome
