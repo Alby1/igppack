@@ -20,7 +20,7 @@ class GiustiziaCommand(Command):
         username = args.optional(0)
         variazione = args.optional(1)
         blocco = await data.get_author(error_if_none=True)
-        if blocco.role == 'admin' and variazione is not None:
+        if blocco.role != "admin" and variazione is not None:
             await data.reply(f"Non sei autorizzato a modificare le giustizie.")
         else:
             if username is None:
