@@ -13,6 +13,8 @@ class GiustiziaCommand(Command):
 
     syntax: str = ""
 
+    aliases = ["gt"]
+
     async def run(self, args: CommandArgs, data: CommandData) -> None:
 
         username = args.optional(0)
