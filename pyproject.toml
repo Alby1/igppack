@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "igppack"
-version = "0.10.1"
+version = "1.0.0"
 description = ""
 authors = ["Alby1 <30355916+Alby1@users.noreply.github.com>"]
 
